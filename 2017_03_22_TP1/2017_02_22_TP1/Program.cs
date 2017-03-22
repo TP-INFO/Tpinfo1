@@ -11,15 +11,11 @@ namespace _2017_02_22_TP1
         /// <summary>
         /// N° de version actuelle
         /// </summary>
-        const double version = 2.0;
+        const double version = 3.0;
         
         static void Main(string[] args)
         {
-            Console.WriteLine(args.Length);
-            foreach (var item in args)
-            {
-                Console.WriteLine(item);
-            }
+            
             Console.WriteLine("Bienvenue dans votre jeu : voici le menu: ");
             for (int i = 0; i < args.Length; i++)
             {
@@ -69,13 +65,14 @@ namespace _2017_02_22_TP1
                         Console.WriteLine(alea);
                         break;
                     case "version":
-                        Console.WriteLine("version : {0}", version + 1.0);
+                        Console.WriteLine("version : {0}", version);
                         break;
                     default:
                         Console.WriteLine("Veuillez rentrer une des 4 options indiquées");
                         break;
                 }
                 Console.WriteLine("Veuillez indiquer votre choix : ");
+                
                 arg = Console.ReadLine();
             }
 
