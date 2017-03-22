@@ -10,6 +10,7 @@ namespace Tpinfo1
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
