@@ -8,20 +8,36 @@ namespace _2017_02_22_TP1
 {
     class Program
     {
+        /// <summary>
+        /// N° de version actuelle
+        /// </summary>
+        const double version = 2.0;
+        
         static void Main(string[] args)
         {
-            const double version = 1.0;
-            string arg = null;
-            while(arg!="chiffre version")
+            Console.WriteLine(args.Length);
+            foreach (var item in args)
             {
-                Console.WriteLine("Bienvenue dans votre jeu : voici le menu: \n 1. 'chiffre help' \n 2. 'chiffre alea' \n 3. 'chiffre new' (votre chiffre) \n 4. 'chiffre version'");
-                arg = Console.ReadLine();
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("Bienvenue dans votre jeu : voici le menu: ");
+            for (int i = 0; i < args.Length; i++)
+            {
+                Console.WriteLine(args[i]);
+            }
+            string arg = Console.ReadLine();
+            while (arg!="exit")
+            {
                 switch (arg)
                 {
-                    case "chiffre help":
-                        Console.WriteLine("Les arguments possibles sont : \n 1. 'chiffre help' \n 2. 'chiffre alea' \n 3. 'chiffre new' (votre chiffre) \n 4. 'chiffre version'");
+                    case "help":
+                        Console.WriteLine("Les arguments possibles sont : ");
+                        for (int i = 0; i < args.Length; i++)
+                        {
+                            Console.WriteLine(args[i]);
+                        }
                         break;
-                    case "chiffre alea":
+                    case "alea":
                         Random random = new Random();
                         int nombreATrouver = random.Next(100);
                         int compte = 0;
@@ -46,23 +62,39 @@ namespace _2017_02_22_TP1
                         } while (nombre != nombreATrouver);
                         Console.WriteLine("Bravo vous avez trouvé en {0} coups le nombre {1}!", compte + 1, nombreATrouver);
                         break;
-                    case "chiffre new":
+                    case "new":
                         Console.WriteLine("Rentrez votre nombre :");
                         int nombrePourOrdi = Convert.ToInt32(Console.ReadLine());
                         int alea = Alea(0, 100, nombrePourOrdi, 1);
                         Console.WriteLine(alea);
                         break;
-                    case "chiffre version":
-                        Console.WriteLine("version : {0}", version+1.0);
+                    case "version":
+                        Console.WriteLine("version : {0}", version + 1.0);
                         break;
                     default:
                         Console.WriteLine("Veuillez rentrer une des 4 options indiquées");
                         break;
                 }
+                Console.WriteLine("Veuillez indiquer votre choix : ");
+                arg = Console.ReadLine();
             }
 
         }
-
+        /// <summary>
+        /// Affiche le N° de version
+        /// </summary>
+        static void AfficherVersion()
+        {
+            Console.WriteLine($"version : {version}");
+        }
+        /// <summary>
+        /// Recherche par l'ordinateur d'un chiffre, de manière aléatoire.
+        /// </summary>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="aTrouver"></param>
+        /// <param name="coups"></param>
+        /// <returns></returns>
         static int Alea(int min, int max, int aTrouver, int coups)
         {
 
