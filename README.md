@@ -3,7 +3,7 @@
 
 Jouer contre l’ordinateur pour découvrir le nombre aléatoire. Il existe deux possibilités : 
 -	Soit l’ordinateur génère un nombre aléatoire et VOUS le trouvez en faisant autant de proposition que nécessaire 
--	Soit VOUS proposer un nombre à l’ordinateur et se dernier devra proposer un nombre tant qu’il n’aura pas trouvé. 
+-	Soit VOUS proposez un nombre à l’ordinateur et ce dernier devra proposer un nombre tant qu’il n’aura pas trouvé. 
 A la fin de la partie vous afficher le nombre de coup qu’il a fallu pour trouver le nombre.
 
 Lorsque vous lancez l’application en mode console, vous avez plusieurs arguments possibles : 
