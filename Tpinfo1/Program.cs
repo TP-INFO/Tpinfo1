@@ -23,6 +23,7 @@ namespace Tpinfo1
 
             //l'ordinateur génère un nombre aléatoire.
 
+            //RETOUR : Belle utilisation du try catch avec ta propre exception...
             try
             {
                 Console.WriteLine("Générer un nombre aléatoire par l'ordinateur");
@@ -34,6 +35,9 @@ namespace Tpinfo1
             }
 
         }
+
+        //RETOUR : Penser à aérer le code (ne pas coller les fonctions 
+        //RETOUR : documenter le code, notamment les fonctions 
         public static void trouverUnNombre()
         {
             Random nbre = new Random();
@@ -53,11 +57,8 @@ namespace Tpinfo1
 
             }
             Console.WriteLine("Tu as gagné en {0} coups. Veux-tu essayer une fois de plus ?", count);
-
         }
-
     }
-
-
+ 
     }
 }
