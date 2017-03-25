@@ -9,14 +9,14 @@ namespace Tpinfo1 {
     /// <summary>
     /// Default values for guess interval 
     /// </summary>
-    static int minVal = 0;  
+    static int minVal = 0;
     static int maxVal = 50;
     static public string helpMessage = "arg1:\n" +
                            "\t- help [display this help message]\n" +
                            "\t- version [get game version]\n" +
                            "\t- aleatoire [starts new game: User guesses value]\n" +
-                           "\t- new [Pc guesses value]\n " + 
-                           "optional args:\n" + 
+                           "\t- new [Pc guesses value]\n " +
+                           "optional args:\n" +
                            "\t nb1 nb2 nb3\n"
       ;
     static public string usageMessage = $"Usage: {System.AppDomain.CurrentDomain.FriendlyName} <arg1> <optional args>\n";
@@ -44,12 +44,12 @@ namespace Tpinfo1 {
       }
       int uInputNb;
       try {
-        uInputNb =  Convert.ToInt32(args[1]);
+        uInputNb = Convert.ToInt32(args[1]);
         if (uInputNb < minVal || uInputNb > maxVal)
           throw new ArgumentOutOfRangeException(uInputNb.ToString(), $"Input out off range: [{minVal},{maxVal}]");
 
         int iTries = 0;
-        
+
         bool found = false;
 
         // pc guesses the uInputh using a random generator. to help converge faster 
@@ -84,28 +84,21 @@ namespace Tpinfo1 {
         DisplayErrorMessage("Invalid input: guess value must be integer");
         System.Environment.Exit(0);
       }
-      catch(ArgumentOutOfRangeException e) {
+      catch (ArgumentOutOfRangeException e) {
         Console.WriteLine(e.Message);
       }
-      catch(Exception ) {
+      catch (Exception) {
         DisplayErrorMessage("Unknown error.");
         System.Environment.Exit(0);
       }
 
-
-
-
-
-
-
-
-    }
-
-
-
-    
+    }//PCGuess
+     /// <summary>
+     /// Displays an error message 
+     /// </summary>
+     /// <param name="msg"><value> message to be displayed </value></param>
     internal static void DisplayErrorMessage(string msg) {
-      Console.WriteLine("Error: "+ msg);
+      Console.WriteLine("Error: " + msg);
     }
     /// <summary>
     /// New game where Pc generates number , and user guesses 
@@ -131,6 +124,8 @@ namespace Tpinfo1 {
           string inputStr = Console.ReadLine();
           try {
             uGuess = Convert.ToInt32(inputStr);
+            if (uGuess < minVal || uGuess > maxVal)
+              throw new ArgumentOutOfRangeException("UserInput", uGuess, $"Input out off range: [{minVal},{maxVal}]");
             ++ntries;// update tries after insuring success reads
             if (uGuess == nbTofind) {
               Console.WriteLine("You found the hidden number: {0}, in {1} tires", nbTofind, ntries);
@@ -150,7 +145,10 @@ namespace Tpinfo1 {
 
             }
             else {
-              Console.WriteLine("try again");
+              if(uGuess < nbTofind)
+              Console.WriteLine("too small, try again");
+              else
+                Console.WriteLine("too big, try again");
 
               //TODO : add possibility to end game  
             }
@@ -162,6 +160,9 @@ namespace Tpinfo1 {
           catch (OverflowException) {
             Console.WriteLine("To biiiiiiig number");
           }
+          catch(ArgumentOutOfRangeException e) {
+            Console.WriteLine(e.Message);
+          }
           catch (Exception) {
             Console.WriteLine("Unknown error has occured. quitting...");
             System.Environment.Exit(0);
@@ -169,27 +170,9 @@ namespace Tpinfo1 {
 
         } while (onGoing);
 
-
-
-
       }
 
+    }// userGUess
 
-
-
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-  }
-}
+  }// utils
+}// tpInfo1
