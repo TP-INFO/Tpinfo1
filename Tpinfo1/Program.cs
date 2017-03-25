@@ -12,6 +12,8 @@ namespace Tpinfo1
 {
   class Program
   {
+    static string version = "1.0";
+
     static void Main(string[] args)
     {
 
@@ -31,11 +33,14 @@ namespace Tpinfo1
           Utils.DisplayHelp(Utils.helpMessage);
           break;
         case "VERSION":
-          Utils.DisplayVersion();
+          Utils.DisplayVersion(version);
           break;
         case "ALEATOIRE":
           Utils.UserGuess();
           break;
+        case "NEW":
+          Utils.PCGuess(args);
+          break; 
         default:
           Console.WriteLine("Input error");
           Utils.DisplayHelp(Utils.usageMessage);
