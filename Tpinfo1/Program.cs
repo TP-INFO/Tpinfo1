@@ -56,8 +56,8 @@ namespace Tpinfo1
 		{
 			public static void AfficherMenu()
 			{
-				/// (j'ai tenté de mettre un foreach (string Parametre in args)
-				/// Console.WriteLine'args) mais échec: lecture uniquement du 1er Parametre seul!!!)
+				/// (j'ai tenté de passer en parametre (string Parametre in args) pour 
+				/// Console.WriteLine mais échec: lecture uniquement du 1er Parametre seul!!!)
 				Console.WriteLine("chiffre help");
 				Console.WriteLine("chiffre alea");
 				Console.WriteLine("chiffre version");
@@ -88,7 +88,7 @@ namespace Tpinfo1
 				Random rnd = new Random();
 				int nbreMin = 0;
 				int nbreMax = 100;
-				int randomNumber = rnd.Next(nbreMin, nbreMax+1);
+				int randomNumber = rnd.Next(101);
 
 				// logique pour trouver le randomNumber
 				Console.WriteLine($"Devinez le nombre caché par le CPC  entre {nbreMin} et {nbreMax}.");
@@ -113,13 +113,16 @@ namespace Tpinfo1
 				Console.WriteLine($"Félicitations! Vous avez réussi en {count} coup(s)");
 			}
 
-			// le CPC doit deviner le nombre caché selon la valeur de la ligne de commande...
-			//
+			/// <summary>
+			/// le CPC doit deviner le nombre caché selon la valeur de la ligne de commande...
+			/// </summary>
 			public static void CPC_DevinerNbre()
 			{
 				int nbreàDeviner;
 				int i = 0;
+				// (je souhaitais récupérer directement la ligne de commande mais je ne sais pas comment le faire)
 				string args3 = "chiffre new 25";
+				// lecture de la valeur int de la string
 				string[] args3String = System.Text.RegularExpressions.Regex.Split(args3, @"\D+");
 				foreach (string value in args3String)
 				{
@@ -129,7 +132,7 @@ namespace Tpinfo1
 					}
 				}
 				nbreàDeviner = i;
-				Console.WriteLine(i);
+				//Console.WriteLine(i);
 
 				Random rnd = new Random();
 				int rnd1 = rnd.Next();
