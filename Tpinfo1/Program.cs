@@ -57,7 +57,7 @@ namespace Tpinfo1
 			public static void AfficherMenu()
 			{
 				/// (j'ai tenté de mettre un foreach (string Parametre in args)
-				/// Console.WriteLine'args) mais échec: lecture uniquement du 1er Paremetre seul!!!)
+				/// Console.WriteLine'args) mais échec: lecture uniquement du 1er Parametre seul!!!)
 				Console.WriteLine("chiffre help");
 				Console.WriteLine("chiffre alea");
 				Console.WriteLine("chiffre version");
@@ -66,7 +66,7 @@ namespace Tpinfo1
 
 			public static void AfficherVersion()
 			{
-				Console.WriteLine($"La version du programme est {version}");
+				Console.WriteLine($"La version du programme est: {version}");
 			}
 		}
 
@@ -91,7 +91,7 @@ namespace Tpinfo1
 				int randomNumber = rnd.Next(nbreMin, nbreMax+1);
 
 				// logique pour trouver le randomNumber
-				Console.WriteLine($"Devinez le nombre caché par le CPC entre entre {nbreMin} et {nbreMax}.");
+				Console.WriteLine($"Devinez le nombre caché par le CPC  entre {nbreMin} et {nbreMax}.");
 				Console.Write($"Entrez un nombre: ");
 				int nbreEntré = Convert.ToInt32(Console.ReadLine());
 
