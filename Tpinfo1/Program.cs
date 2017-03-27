@@ -16,12 +16,12 @@ namespace Tpinfo1
 
 		static void Main(string[] args)
 		{
-		
+
 			////TODO : tester si le ou les arguments existent
-			//foreach (string parametre in args)
-			//{
-			//	Console.WriteLine(parametre);
-			//}
+			foreach (string parametre in args)
+			{
+			Console.WriteLine(parametre);
+			}
 
 			//TODO : En fonction de l'argument passé en mode console 
 			// - appeler une fonction interne
