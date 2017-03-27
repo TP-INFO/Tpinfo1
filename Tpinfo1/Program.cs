@@ -135,26 +135,50 @@ namespace Tpinfo1
 				//Console.WriteLine(i);
 
 				Random rnd = new Random();
-				int rnd1 = rnd.Next();
+				//int rnd1 = rnd.Next();
 				// Console.WriteLine(rnd1); // print du nbre random initialisé
-				int count = 1;
-				int rnd2 = rnd1;
+				int count = 0;
+				//int rnd2 = rnd1;
 
-				while (rnd1 != nbreàDeviner)
+			///////////////////////// SOLUTION (thanks to Mohamed)
+				int start = 0;
+				int stop = int.MaxValue;
+				int pcGuess;
+				bool found = false;
+
+				do
 				{
-					if (rnd1 > nbreàDeviner)
-					{
-						rnd1 = rnd.Next(rnd1);
-					}
-					else // if (rnd1 < NbreàDeviner)
-					{
-						rnd1 = rnd.Next(rnd1, rnd2);
-					}
-					count++;
-					Console.WriteLine(rnd1); // print du nbre successif réinitialisé
-				}
-				Console.WriteLine($"Le nombre à deviner était {rnd1}");
-				Console.WriteLine($"Il a été deviné en {count} coups!");
+					pcGuess = rnd.Next(start, stop);
+					if (pcGuess < nbreàDeviner)
+						start = pcGuess;
+					else if (pcGuess > nbreàDeviner)
+						stop = pcGuess;
+					else
+						found = true;
+					++count;
+					Console.WriteLine(pcGuess);
+
+				} while (!found);
+			////////////////////////
+
+
+				//while (rnd1 != nbreàDeviner)
+				//{
+				//	if (rnd1 > nbreàDeviner)
+				//	{
+				//		rnd1 = rnd.Next(rnd1);
+				//	}
+				//	else if (rnd1 < nbreàDeviner)
+				//	{
+				//		int rnd2 = rnd1;
+				//		rnd1 = rnd.Next(rnd1, rnd2);
+				//	}
+				//	count++;
+				//	Console.WriteLine(rnd1); // print du nbre successif réinitialisé
+				//}
+				//Console.WriteLine($"Le nombre à deviner était {rnd1}");
+				//Console.WriteLine($"Il a été deviné en {count} coups!");
+
 			}
 		}
 	}
