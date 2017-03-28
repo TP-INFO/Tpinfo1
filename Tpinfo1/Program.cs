@@ -8,7 +8,10 @@ namespace Tpinfo1
 {
     class Program
     {
-        const double version = 0.1;
+        /// <summary>
+        /// Définit la version du Programme
+        /// </summary>
+        const string version = "0.1";
 
         static void Main(string[] args)
         {
@@ -26,7 +29,7 @@ namespace Tpinfo1
                         //TODO :  vérifier le type de l'argument 2 (doit être un entier) 
                         if (args.Length >= 2)
                         {
-                            creerNouvellePartie(args[1]);
+                            donnerChiffre(args[1]);
                         }
                         else
                         {
@@ -51,26 +54,77 @@ namespace Tpinfo1
         /// </summary>
         private static void trouverChiffre()
         {
-            Console.WriteLine("Trouver le chiffre proposé par l'ordinateur");
-        }
+            int compt = 0;
+            Console.WriteLine("Trouver un chiffre entre 0 et 50 :\n");
+
+            Random rnd = new Random();
+            int nbAlea = rnd.Next(0, 50);
+
+            int UserInput = Convert.ToInt32(Console.ReadLine());
+
+            while (UserInput != nbAlea)
+            {
+                if (UserInput > nbAlea)
+                {
+                    Console.WriteLine("C'est plus petit !\n");
+                    ++compt;
+                }
+                else if (UserInput < nbAlea)
+                {
+                    Console.WriteLine("C'est plus grand !\n");
+                    ++compt;
+                }
+                 
+                Console.WriteLine("Essayer encore ..\n" +
+                                  "Trouver le nombre entre 0 et 50 :\n");
+                UserInput = Convert.ToInt32(Console.ReadLine());
+
+                ++compt;
+            }
+            Console.WriteLine("Bien joué ! Vous avez trouvé le nombre en {0}\n", compt);
+
+            if (compt > 10)
+            {
+                Console.WriteLine("Il va falloir muscler votre jeu la prochaine fois !");
+            }
+            else
+            {
+                Console.WriteLine("Vous êtes un pro des nombres !");
+            }
+
+        }//End of TrouverChiffre
 
 
         /// <summary>
         /// Lance une nouvelle partie où l'ordinateur doit trouver le chiffre de l'utilisateur
         /// </summary>
         /// <param name="v"></param>
-        private static void creerNouvellePartie(string chiffreATrouver)
+        private static void donnerChiffre(string chiffreATrouver)
         {
-            Console.WriteLine("nouvelle partie avec la valeur : {0}", chiffreATrouver);
-        }
+            int compt = 0;
+            chiffreATrouver = Console.ReadLine();
+
+            Console.WriteLine("Nouvelle partie contre la machine avec le chiffre : {0} ", chiffreATrouver);
+
+            Random rnd = new Random();
+            
+
+
+        }//End of method
 
         /// <summary>
         /// Afficher le menu d'aide 
         /// </summary>
         private static void afficherHelp()
         {
-            Console.WriteLine("aidez moi");
-        }
+            Console.WriteLine("\t \n" +
+                              "Commands Help :\n" +
+                              "\t \n" +
+                              "\thelp - Show help\n" +
+                              "\tversion - Show app current version\n" +
+                              "\tnew - Start new game with a number you have to find\n" +
+                              "\talea - Start new game with a number the computer have to find\n");
+        }//End of Methods
 
 
         /// <summary>
@@ -80,3 +134,6 @@ namespace Tpinfo1
         {
             Console.WriteLine("Version : {0}", version);
         }
+
+    }
+}
