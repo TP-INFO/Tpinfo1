@@ -11,7 +11,7 @@ namespace Tpinfo1
         /// <summary>
         /// Définit la version du Programme
         /// </summary>
-        const string version = "0.1";
+        const string version = "0.2";
 
         static void Main(string[] args)
         {
@@ -26,15 +26,8 @@ namespace Tpinfo1
                         afficherHelp();
                         break;
                     case "new":
-                        //TODO :  vérifier le type de l'argument 2 (doit être un entier) 
-                        if (args.Length >= 2)
-                        {
-                            donnerChiffre(args[1]);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Rentrez une valeur ");
-                        }
+                        //ToDo == Verif nombre d'arguments.
+                        donnerChiffre(args);                        
                         break;
                     case "alea":
                         trouverChiffre();
@@ -99,15 +92,12 @@ namespace Tpinfo1
         /// Lance une nouvelle partie où l'ordinateur doit trouver le chiffre de l'utilisateur
         /// </summary>
         /// <param name="v"></param>
-        private static void donnerChiffre(string chiffreATrouver)
+        private static void donnerChiffre(string[] args)
         {
-            int compt = 0;
-            chiffreATrouver = Console.ReadLine();
+            int minNb = 0;
+            int maxNb = 50;
 
-            Console.WriteLine("Nouvelle partie contre la machine avec le chiffre : {0} ", chiffreATrouver);
-
-            Random rnd = new Random();
-            
+            //string UserInput = Console.ReadLine();
 
 
         }//End of method
