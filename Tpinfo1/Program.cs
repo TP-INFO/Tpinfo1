@@ -63,13 +63,13 @@ namespace Tpinfo1
 
         }
 
-        /// <summary>
         /// Méthode TrouverUnNombre : l'utilisateur doit trouver le nombre aléatoire généré dans un intervalle déterminé
         /// Exception en cas de saisi d'un nombre négatif.
         /// </summary>
         /// <param name="nbreF"></param>
         public static void TrouverUnNombre(string nbreF)
         {
+            //RETOUR : Belle utilisation du try catch avec ta propre exception...
             try
             {
                 Console.WriteLine("choisissez l'intervalle maximum : ");
@@ -112,6 +112,13 @@ namespace Tpinfo1
         /// <param name="nbreF"></param>
         public static void FaireTrouverUnNombre(string nbreF)
         {
+            Console.WriteLine("faire trouver un nombre");
+        }
+
+        //RETOUR : Penser à aérer le code (ne pas coller les fonctions 
+        //RETOUR : documenter le code, notamment les fonctions 
+        public static void trouverUnNombre()
+        {
             try
             {
                 int nbreMin = 0;
@@ -142,8 +149,9 @@ namespace Tpinfo1
                 Console.WriteLine(e.Message);
             }
            
+            Console.WriteLine("Tu as gagné en {0} coups. Veux-tu essayer une fois de plus ?", count);
         }
-
     }
    
+ 
 }
