@@ -10,12 +10,12 @@ namespace Tpinfo1
     {
         public NombreSaisiException()
         {
-        } 
+        }
 
-        
         public override string ToString()
         {
-            return "On t'a dit de rentrer un nombre entre 0 et 30 !";
+            return "Tu ne vois pas que le nombre saisi est hors intervalle ? Recommence Tudieu avec un nombre entier positif !";
         }
+
     }
 }
