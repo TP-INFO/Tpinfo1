@@ -11,7 +11,7 @@ namespace Tpinfo1
         /// <summary>
         /// Définit la version du Programme
         /// </summary>
-        const string version = "0.2";
+        const string version = "1.0b";
 
         static void Main(string[] args)
         {
@@ -27,7 +27,7 @@ namespace Tpinfo1
                         break;
                     case "new":
                         //ToDo == Verif nombre d'arguments.
-                        donnerChiffre(args);                        
+                        donnerChiffre(args[1]);                        
                         break;
                     case "alea":
                         trouverChiffre();
@@ -92,12 +92,48 @@ namespace Tpinfo1
         /// Lance une nouvelle partie où l'ordinateur doit trouver le chiffre de l'utilisateur
         /// </summary>
         /// <param name="v"></param>
-        private static void donnerChiffre(string[] args)
+        private static void donnerChiffre(string UserInput)
         {
-            int minNb = 0;
-            int maxNb = 50;
+            Console.WriteLine("");
+            Console.WriteLine("Nouvelle partie contre la machine avec le chiffre : {0} ", UserInput);
 
-            //string UserInput = Console.ReadLine();
+            int minVal = int.MinValue;
+            int maxVal = int.MaxValue;
+
+            bool trouver = false;
+
+            int compt = 0;
+
+            Random rnd = new Random();
+            int nbAlea;
+
+            int nbUser = Convert.ToInt32(UserInput);
+
+            do
+            {
+                ++compt;
+                nbAlea = rnd.Next(minVal, maxVal);
+
+                if (nbAlea < nbUser)
+                {
+                    minVal = nbAlea;
+                }
+                else if (nbAlea > nbUser)
+                {
+                    maxVal = nbAlea;
+                }
+                else
+                {
+                    trouver = true;
+                }
+
+                Console.WriteLine(nbAlea);
+
+            } while (!trouver);
+
+            Console.WriteLine("Computer Wins il a trouvé {0} ! Il a mit {1} coups pour parvenir au résultats !", nbAlea, compt);
+
+
 
 
         }//End of method
