@@ -106,7 +106,7 @@ namespace Tpinfo1
             }
         }
         /// <summary>
-        /// Méthode FaireTrouverUnNombre : l'utilisateur rentre un nombre que l'ordinateur doit déterminer
+        /// Méthode    FaireTrouverUnNombre : l'utilisateur rentre un nombre que l'ordinateur doit déterminer
         /// Prise en compte de l'erreur si le nombre rentré est décimal.
         /// </summary>
         /// <param name="nbreF"></param>
