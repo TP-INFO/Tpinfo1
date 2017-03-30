@@ -17,10 +17,7 @@ namespace _2017_02_22_TP1
         {
             
             Console.WriteLine("Bienvenue dans votre jeu : voici le menu: ");
-            for (int i = 0; i < args.Length; i++)
-            {
-                Console.WriteLine(args[i]);
-            }
+            AfficherMenu();
             string arg = Console.ReadLine();
             while (arg!="exit")
             {
@@ -28,10 +25,7 @@ namespace _2017_02_22_TP1
                 {
                     case "help":
                         Console.WriteLine("Les arguments possibles sont : ");
-                        for (int i = 0; i < args.Length; i++)
-                        {
-                            Console.WriteLine(args[i]);
-                        }
+                        AfficherMenu();
                         break;
                     case "alea":
                         Random random = new Random();
@@ -112,6 +106,14 @@ namespace _2017_02_22_TP1
             }
             else
                 return coups;
+        }
+
+        public static void AfficherMenu()
+        {
+            Console.WriteLine("help");
+            Console.WriteLine("alea");
+            Console.WriteLine("new");
+            Console.WriteLine("version");
         }
     }
 }
